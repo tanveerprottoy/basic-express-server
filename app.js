@@ -6,9 +6,10 @@ const HOST = "127.0.0.1";
 
 // App
 const app = express();
-app.get("/", (req, res) => {
+
+app.get("/health-check", (req, res) => {
     res.send({
-        message: "Hello from Express Server"
+        message: "OK"
     });
 });
 
@@ -24,6 +25,12 @@ app.get("/api/v1/resourses", (req, res) => {
                 name: "resource " + 2
             }
         ]
+    });
+});
+
+app.get("/", (req, res) => {
+    res.send({
+        message: "Hello from Express Server 1"
     });
 });
 
